@@ -3,7 +3,7 @@
 [[website]](https://colin-jing.github.io/SLMP/)
 
 <div float="center">
-  <video src="assets/robot_fighting_head.mp4" autoplay loop muted controls></video>
+  <img src="assets/robot_fighting_head.gif" width="100%" />
 </div>
 
 
