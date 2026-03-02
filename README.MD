@@ -3,7 +3,7 @@
 [[website]](https://colin-jing.github.io/SLMP/)
 
 <div float="center">
-  <img src="assets/robot_fighting_head.gif" width="100%" />
+  <img src="assets/g1_combat_3.gif" width="100%" />
 </div>
 
 
