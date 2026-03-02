@@ -1,4 +1,4 @@
-# SLPM Combat 
+# Spherical Latent Motion Prior for Physics-Based Simulated Humanoid Control 
 
 [[website]](https://colin-jing.github.io/SLMP/)
 
