@@ -1,0 +1,88 @@
+task: HumanoidCombatZ
+num_envs: 16
+env_spacing: 5
+episode_length: 900
+enable_debug_vis: False
+kp_scale: 1
+
+control_mode: "isaac_pd"
+power_reward: False
+z_size: 64
+
+self_obs_v: 1
+obs_v: 6
+
+z_readout: False
+fitting: False
+
+distill: false
+save_kin_info: False
+z_read: False
+models: ['output/HumanoidIm/smpl_combat_prior/Humanoid_00017700.pth']
+
+power_scale: 1.0
+controlFrequencyInv: 2
+
+local_root_obs: True
+root_height_obs: True
+key_bodies: ["R_Ankle", "L_Ankle", "R_Toe", "L_Toe", "R_Wrist", "L_Wrist", "R_Hand", "L_Hand"]
+contact_bodies: ["R_Ankle", "L_Ankle", "R_Toe", "L_Toe"]
+terminationHeight: 0.15
+enableEarlyTermination: True
+enableTaskObs: True
+
+agent_spawn_positions:
+  - [0.4, 0.1]
+  - [-0.4, -0.1]
+agent_spawn_headings:
+  - 3.1415926
+  - 0.0
+spawn_inside_margin: [1.0, 1.0]
+combat_area: [-2.5, 2.5, -2.5, 2.5]
+too_far_dist: 2.5 # 1.2
+chest_body_index: 11
+contact_force_threshold: 50.0
+contact_force_clip_min: 100.0
+contact_force_clip_max: 3000.0
+too_close_dist: 0.3
+too_close_frames: 60
+hand_target_close_dist: 0.2
+hand_target_close_frames: 30
+reward_weights:
+  reward_f: 0.0
+  reward_v: 0.0
+  reward_s: 0.01
+  reward_t: 100.0
+  reward_h: 0.0
+  hit_dist_thresh: 0.3
+ring_pose_z: -1.02
+ring_color: [1.0, 1.0, 1.0]
+ring_asset:
+  asset_root: "phc/data/assets/urdf/"
+  asset_file: "combat_ring.urdf"
+  angular_damping: 0.01
+  linear_damping: 0.01
+  max_angular_velocity: 100.0
+  density: 1.0
+
+plane:
+  staticFriction: 1.0
+  dynamicFriction: 1.0
+  restitution: 0.0
+
+sim:
+substeps: 2
+physx:
+  num_threads: 4
+  solver_type: 1
+  num_position_iterations: 4
+  num_velocity_iterations: 0
+  contact_offset: 0.02
+  rest_offset: 0.0
+  bounce_threshold_velocity: 0.2
+  max_depenetration_velocity: 10.0
+  default_buffer_size_multiplier: 10.0
+
+flex:
+  num_inner_iterations: 10
+  warm_start: 0.25

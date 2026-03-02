@@ -1,0 +1,220 @@
+<mujoco model="pm01">
+    <compiler angle="radian" meshdir="meshes" />
+
+    <asset>
+        <mesh name="link_base" file="link_base.stl" />
+        <mesh name="link_hip_pitch_l" file="link_hip_pitch_l.stl" />
+        <mesh name="link_hip_roll_l" file="link_hip_roll_l.stl" />
+        <mesh name="link_hip_yaw_l" file="link_hip_yaw_l.stl" />
+        <mesh name="link_knee_pitch_l" file="link_knee_pitch_l.stl" />
+        <mesh name="link_ankle_pitch_l" file="link_ankle_pitch_l.stl" />
+        <mesh name="link_ankle_roll_l" file="link_ankle_roll_l.stl" />
+        <mesh name="link_hip_pitch_r" file="link_hip_pitch_r.stl" />
+        <mesh name="link_hip_roll_r" file="link_hip_roll_r.stl" />
+        <mesh name="link_hip_yaw_r" file="link_hip_yaw_r.stl" />
+        <mesh name="link_knee_pitch_r" file="link_knee_pitch_r.stl" />
+        <mesh name="link_ankle_pitch_r" file="link_ankle_pitch_r.stl" />
+        <mesh name="link_ankle_roll_r" file="link_ankle_roll_r.stl" />
+        <mesh name="link_torso_yaw" file="link_torso_yaw.stl" />
+        <mesh name="link_shoulder_pitch_l" file="link_shoulder_pitch_l.stl" />
+        <mesh name="link_shoulder_roll_l" file="link_shoulder_roll_l.stl" />
+        <mesh name="link_shoulder_yaw_l" file="link_shoulder_yaw_l.stl" />
+        <mesh name="link_elbow_pitch_l" file="link_elbow_pitch_l.stl" />
+        <mesh name="link_elbow_yaw_l" file="link_elbow_yaw_l.stl" />
+        <mesh name="link_shoulder_pitch_r" file="link_shoulder_pitch_r.stl" />
+        <mesh name="link_shoulder_roll_r" file="link_shoulder_roll_r.stl" />
+        <mesh name="link_shoulder_yaw_r" file="link_shoulder_yaw_r.stl" />
+        <mesh name="link_elbow_pitch_r" file="link_elbow_pitch_r.stl" />
+        <mesh name="link_elbow_yaw_r" file="link_elbow_yaw_r.stl" />
+        <mesh name="link_head_yaw" file="link_head_yaw.stl" />
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300" />
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2" />
+        <material name="black" rgba="0.2 0.2 0.2 1" />
+        <material name="silver" rgba="0.7 0.7 0.7 1" />
+    </asset>
+
+    <worldbody>
+        <light pos="0 0 1.5" dir="0 0 -1" directional="true" />
+        <geom name="floor" size="0 0 0.01" type="plane" material="groundplane" conaffinity="1" />
+        <body name="link_base" pos="0 0 0.78">
+            <inertial pos="0.01525750 -0.00001621 -0.02333111" mass="4.08640035" fullinertia="0.02021593 0.01531282 0.01216285 -0.00000120 -0.00037784 -0.00000295" />
+            <freejoint name="link_base" />
+            <geom mesh="link_base" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="black" />
+            <geom name="base_collision" type="capsule" size="0.08" fromto="0 -0.03 -0.06 0 0.03 -0.06" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+            <body name="link_hip_pitch_l" pos="0.01541 0.076141 -0.061208">
+                <inertial pos="0.01010860 0.04524604 -0.01196488" mass="1.68628239" fullinertia="0.00230276 0.00202247 0.00220299 0.00006587 -0.00002062 -0.00003966" />
+                <joint name="j00_hip_pitch_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0.96593 -0.25882" range="-3.141 2.443" actuatorfrcrange="-164 164" armature="0.02" />
+                <geom mesh="link_hip_pitch_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                <body name="link_hip_roll_l" pos="0.048 0.049359 -0.013226">
+                    <inertial pos="-0.01861361 0.00234772 -0.04601977" mass="0.63274283" fullinertia="0.00133858 0.00144745 0.00125215 -0.00004643 0.00032023 0.00003062" />
+                    <joint name="j01_hip_roll_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="1 0 0" range="-0.436 2.094" actuatorfrcrange="-164 164" armature="0.02" />
+                    <geom mesh="link_hip_roll_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                    <body name="link_hip_yaw_l" pos="-0.03139 -0.0015951 -0.086016">
+                        <inertial pos="-0.00361155 0.00117239 -0.09310066" mass="1.85800304" fullinertia="0.01637894 0.01626744 0.00343388 -0.00006202 0.00110380 -0.00041393" />
+                        <joint name="j02_hip_yaw_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0 1" range="-1.57 4.014" actuatorfrcrange="-52 52" armature="0.007" />
+                        <geom mesh="link_hip_yaw_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                        <geom name="left_thigh_collision" type="capsule" size="0.06" fromto="0 0 0.02 0 0 -0.22" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                        <body name="link_knee_pitch_l" pos="-0.02602 -2.8566e-05 -0.23655">
+                            <inertial pos="-0.00978702 0.00212191 -0.11930917" mass="4.29474062" fullinertia="0.05314257 0.05480624 0.00561043 0.00007471 0.00581909 0.00057095" />
+                            <joint name="j03_knee_pitch_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 1 0" range="-0.3491 2.3911" actuatorfrcrange="-164 164" armature="0.02" />
+                            <geom mesh="link_knee_pitch_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                            <geom name="left_shin_collision" type="capsule" size="0.055" fromto="0 0 0.02 0 0 -0.3" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                            <body name="link_ankle_pitch_l" pos="-0.026756 0.00041994 -0.36305">
+                                <inertial pos="0.00126412 0 -0.00661445" mass="0.11534469" fullinertia="0.00001346 0.00001511 0.00001253 0 0.00000113 0" />
+                                <joint name="j04_ankle_pitch_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 1 0" range="-0.6807 0.7243" actuatorfrcrange="-52 52" armature="0.007" />
+                                <geom mesh="link_ankle_pitch_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                                <body name="link_ankle_roll_l" pos="0 0 -0.015">
+                                    <inertial pos="0.01456057 0.00000119 -0.02219893" mass="0.71786765" fullinertia="0.00057796 0.00276500 0.00292373 -0.00002888 -0.00014638 -0.00000205" />
+                                    <joint name="j05_ankle_roll_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="1 0 0" range="-0.2618 0.2618" actuatorfrcrange="-52 52" armature="0.007" />
+                                    <geom mesh="link_ankle_roll_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="black" />
+                                    <geom name="left_foot1_collision" type="capsule" size="0.01" fromto="-0.045 -0.04 -0.024 0.145 -0.04 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="left_foot2_collision" type="capsule" size="0.01" fromto="-0.07 -0.02 -0.024 0.16 -0.02 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="left_foot3_collision" type="capsule" size="0.01" fromto="-0.075 0 -0.024 0.16 0 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="left_foot4_collision" type="capsule" size="0.01" fromto="-0.07 0.02 -0.024 0.16 0.02 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="left_foot5_collision" type="capsule" size="0.01" fromto="-0.045 0.04 -0.024 0.145 0.04 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="link_hip_pitch_r" pos="0.01541 -0.076141 -0.061208">
+                <inertial pos="0.01021848 -0.04516729 -0.01221388" mass="1.68024369" fullinertia="0.00229703 0.00202245 0.00218388 -0.00006759 -0.00001661 0.00005508" />
+                <joint name="j06_hip_pitch_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0.96593 0.25882" range="-3.141 2.443" actuatorfrcrange="-164 164" armature="0.02" />
+                <geom mesh="link_hip_pitch_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                <body name="link_hip_roll_r" pos="0.048 -0.04936 -0.013226">
+                    <inertial pos="-0.01847775 -0.00232999 -0.04573211" mass="0.63673573" fullinertia="0.00134870 0.00145899 0.00125531 0.00004656 0.00032421 -0.00003020" />
+                    <joint name="j07_hip_roll_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="1 0 0" range="-2.094 0.436" actuatorfrcrange="-164 164" armature="0.02" />
+                    <geom mesh="link_hip_roll_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                    <body name="link_hip_yaw_r" pos="-0.03139 0.0015966 -0.086016">
+                        <inertial pos="-0.00365713 -0.00305643 -0.09626805" mass="1.83146024" fullinertia="0.01612343 0.01601231 0.00336783 0.00005892 0.00108663 0.00037741" />
+                        <joint name="j08_hip_yaw_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0 1" range="-4.014 1.57" actuatorfrcrange="-52 52" armature="0.007" />
+                        <geom mesh="link_hip_yaw_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                        <geom name="right_thigh_collision" type="capsule" size="0.06" fromto="0 0 0.02 0 0 -0.22" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                        <body name="link_knee_pitch_r" pos="-0.02602 2.8566e-05 -0.23655">
+                            <inertial pos="-0.00985503 -0.00214867 -0.11898555" mass="4.29186385" fullinertia="0.05277030 0.05446054 0.00563558 -0.00007617 0.00582343 -0.00054823" />
+                            <joint name="j09_knee_pitch_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 1 0" range="-0.3491 2.3911" actuatorfrcrange="-164 164" armature="0.02" />
+                            <geom mesh="link_knee_pitch_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                            <geom name="right_shin_collision" type="capsule" size="0.055" fromto="0 0 0.02 0 0 -0.3" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                            <body name="link_ankle_pitch_r" pos="-0.026756 -0.00041994 -0.36305">
+                                <inertial pos="0.00073183 0 -0.00669428" mass="0.11534469" fullinertia="0.00001327 0.00001511 0.00001272 0 0.00000119 0" />
+                                <joint name="j10_ankle_pitch_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 1 0" range="-0.6807 0.7243" actuatorfrcrange="-52 52" armature="0.007" />
+                                <geom mesh="link_ankle_pitch_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                                <body name="link_ankle_roll_r" pos="0 0 -0.015">
+                                    <inertial pos="0.01470675 0.00001452 -0.02226584" mass="0.71559163" fullinertia="0.00057544 0.00275723 0.00291607 0.00003022 -0.00014346 0.00000194" />
+                                    <joint name="j11_ankle_roll_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="1 0 0" range="-0.2618 0.2618" actuatorfrcrange="-52 52" armature="0.007" />
+                                    <geom mesh="link_ankle_roll_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="black" />
+                                    <geom name="right_foot1_collision" type="capsule" size="0.01" fromto="-0.045 -0.04 -0.024 0.145 -0.04 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="right_foot2_collision" type="capsule" size="0.01" fromto="-0.07 -0.02 -0.024 0.16 -0.02 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="right_foot3_collision" type="capsule" size="0.01" fromto="-0.075 0 -0.024 0.16 0 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="right_foot4_collision" type="capsule" size="0.01" fromto="-0.07 0.02 -0.024 0.16 0.02 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                    <geom name="right_foot5_collision" type="capsule" size="0.01" fromto="-0.045 0.04 -0.024 0.145 0.04 -0.024" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="link_torso_yaw" pos="0.01216 0 0.0809">
+                <inertial pos="-0.01140718 -0.00348592 0.16283761" mass="9.01442210" fullinertia="0.08499169 0.06564210 0.05757680 -0.00035130 -0.00487771 -0.00043579" />
+                <joint name="j12_waist_yaw" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0 1" range="-4.014 1.57" actuatorfrcrange="-52 52" armature="0.007" />
+                <geom mesh="link_torso_yaw" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                <geom name="torso_collision1" type="capsule" size="0.09" fromto="0.0 -0.05 0.18 0.0 0.05 0.18" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                <geom name="torso_collision2" type="capsule" size="0.08" fromto="0.0 -0.04 0.10 0.0 0.04 0.10" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                <geom name="torso_collision3" type="capsule" size="0.065" fromto="0.0 -0.03 0.03 0.0 0.03 0.03" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                <body name="link_shoulder_pitch_l" pos="-0.027105 0.12916 0.21549">
+                    <inertial pos="-0.00687390 0.05624677 -0.01564153" mass="0.93215458" fullinertia="0.00123482 0.00072034 0.00100386 -0.00005768 0.00002372 -0.00018994" />
+                    <joint name="j13_shoulder_pitch_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0.99803 0.062791" range="-2.9671 2.7925" actuatorfrcrange="-52 52" armature="0.007" />
+                    <geom mesh="link_shoulder_pitch_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                    <body name="link_shoulder_roll_l" pos="-0.0371 0.066941 -0.020838">
+                        <inertial pos="0.03741198 0.00677175 -0.02678007" mass="0.51081280" fullinertia="0.00099276 0.00129412 0.00093889 -0.00000156 0.00000333 -0.00012129" />
+                        <joint name="j14_shoulder_roll_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="1 0 0" range="-0.6108 2.3562" actuatorfrcrange="-52 52" armature="0.007" />
+                        <geom mesh="link_shoulder_roll_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                        <body name="link_shoulder_yaw_l" pos="0.0371 0.017645 -0.070132">
+                            <inertial pos="-0.00084545 0.00219391 -0.04566495" mass="0.90913792" fullinertia="0.00162163 0.00150870 0.00078740 0.00000177 0.00000997 -0.00001196" />
+                            <joint name="j15_shoulder_yaw_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 -0.062803 0.99803" range="-2.618 2.618" actuatorfrcrange="-52 52" armature="0.007" />
+                            <geom mesh="link_shoulder_yaw_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                            <geom name="left_shoulder_collision" type="capsule" size="0.05" fromto="0 0 0.1 0 0 0.01" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                            <!-- <geom name="left_upper_arm_collision" type="capsule" size="0.04" fromto="0 0 0.07 0 0 -0.1" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" /> -->
+                            <body name="link_elbow_pitch_l" pos="0 0.0065994 -0.10487">
+                                <inertial pos="0.00298237 0.00186711 -0.06518459" mass="1.38061447" fullinertia="0.00588024 0.00593736 0.00083553 0.00002816 -0.00030012 -0.00046397" />
+                                <joint name="j16_elbow_pitch_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0.0027243 0.99802 0.062803" range="-2.1948 0.7374" actuatorfrcrange="-52 52" armature="0.007" />
+                                <geom mesh="link_elbow_pitch_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                                <geom name="left_forearm_collision" type="capsule" size="0.04" fromto="0 0 0.01 0.022 0 -0.18" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                <body name="link_elbow_yaw_l" pos="0.013817 0.0097723 -0.1547">
+                                    <inertial pos="0.02016404 0.00026082 -0.08990721" mass="0.46651916" fullinertia="0.00167348 0.00173094 0.00039325 0.00000913 0.00030658 -0.00004087" />
+                                    <joint name="j17_elbow_yaw_l" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="-0.21479 -0.061921 0.9747" range="-2.618 2.618" actuatorfrcrange="-52 52" armature="0.007" />
+                                    <geom mesh="link_elbow_yaw_l" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                                    <geom name="left_fist_collision" type="capsule" size="0.03" fromto="0.008183 -0.0097723 -0.0943 0.052415 -0.0097723 -0.1" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="link_shoulder_pitch_r" pos="-0.027105 -0.12916 0.21549">
+                    <inertial pos="-0.00682535 -0.05628532 -0.01567159" mass="0.92914080" fullinertia="0.00123547 0.00071785 0.00100508 0.00005830 0.00002503 0.00018920" />
+                    <joint name="j18_shoulder_pitch_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0.99803 -0.062791" range="-2.9671 2.7925" actuatorfrcrange="-52 52" armature="0.007" />
+                    <geom mesh="link_shoulder_pitch_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                    <body name="link_shoulder_roll_r" pos="-0.0371 -0.066941 -0.020838">
+                        <inertial pos="0.03745836 -0.00675724 -0.02671114" mass="0.50967809" fullinertia="0.00099158 0.00129182 0.00093761 0.00000134 0.00000304 0.00012106" />
+                        <joint name="j19_shoulder_roll_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="1 0 0" range="-2.3562 0.6108" actuatorfrcrange="-52 52" armature="0.007" />
+                        <geom mesh="link_shoulder_roll_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                        <body name="link_shoulder_yaw_r" pos="0.0371 -0.017644 -0.070132">
+                            <inertial pos="-0.00081742 -0.00217677 -0.04566906" mass="0.90851688" fullinertia="0.00162102 0.00150799 0.00078668 -0.00000094 0.00001055 0.00001216" />
+                            <joint name="j20_shoulder_yaw_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0.062791 0.99803" range="-2.618 2.618" actuatorfrcrange="-52 52" armature="0.007" />
+                            <geom mesh="link_shoulder_yaw_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                            <geom name="right_shoulder_collision" type="capsule" size="0.05" fromto="0 0 0.1 0 0 0.01" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                            <!-- <geom name="right_upper_arm_collision" type="capsule" size="0.04" fromto="0 0 0.07 0 0 -0.1" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" /> -->
+                            <body name="link_elbow_pitch_r" pos="0 -0.006598 -0.10487">
+                                <inertial pos="0.00302244 -0.00191447 -0.06521149" mass="1.38162913" fullinertia="0.00587907 0.00593696 0.00083539 -0.00002756 -0.00029909 0.00046493" />
+                                <joint name="j21_elbow_pitch_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0.0027243 0.99802 -0.06279" range="-2.1948 0.7374" actuatorfrcrange="-52 52" armature="0.007" />
+                                <geom mesh="link_elbow_pitch_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                                <geom name="right_forearm_collision" type="capsule" size="0.04" fromto="0 0 0.01 0.022 0 -0.18" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                <body name="link_elbow_yaw_r" pos="0.013817 -0.0097704 -0.1547">
+                                    <inertial pos="0.02021657 -0.00026434 -0.08993096" mass="0.46648073" fullinertia="0.00167086 0.00172726 0.00039220 -0.00000942 0.00030396 0.00004086" />
+                                    <joint name="j22_elbow_yaw_r" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="-0.21479 0.061909 0.9747" range="-2.618 2.618" actuatorfrcrange="-52 52" armature="0.007" />
+                                    <geom mesh="link_elbow_yaw_r" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="silver" />
+                                    <geom name="right_fist_collision" type="capsule" size="0.03" fromto="0.008183 0.0097704 -0.0943 0.052415 0.0097704 -0.1" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="link_head_yaw" pos="-0.017638 0 0.2961">
+                    <inertial pos="0.00358213 0.00030109 0.08822633" mass="0.84510036" fullinertia="0.00428261 0.00500542 0.00313801 0.00000647 -0.00048256 -0.00000033" />
+                    <joint name="j23_head_yaw" frictionloss="0.1" solimplimit="0.97 0.995 0.001" axis="0 0 1" range="-0.6109 0.6109" actuatorfrcrange="-52 52" armature="0.007" />
+                    <geom mesh="link_head_yaw" contype="0" conaffinity="0" group="2" type="mesh" density="0" material="black" />
+                    <geom name="head_collision" type="capsule" size="0.065" fromto="0 0 0.04 0 0 0.12" contype="1" conaffinity="1" group="3" rgba=".2 .6 .2 .3" />
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="j00_hip_pitch_l" joint="j00_hip_pitch_l" />
+        <motor name="j01_hip_roll_l" joint="j01_hip_roll_l" />
+        <motor name="j02_hip_yaw_l" joint="j02_hip_yaw_l" />
+        <motor name="j03_knee_pitch_l" joint="j03_knee_pitch_l" />
+        <motor name="j04_ankle_pitch_l" joint="j04_ankle_pitch_l" />
+        <motor name="j05_ankle_roll_l" joint="j05_ankle_roll_l" />
+        <motor name="j06_hip_pitch_r" joint="j06_hip_pitch_r" />
+        <motor name="j07_hip_roll_r" joint="j07_hip_roll_r" />
+        <motor name="j08_hip_yaw_r" joint="j08_hip_yaw_r" />
+        <motor name="j09_knee_pitch_r" joint="j09_knee_pitch_r" />
+        <motor name="j10_ankle_pitch_r" joint="j10_ankle_pitch_r" />
+        <motor name="j11_ankle_roll_r" joint="j11_ankle_roll_r" />
+        <motor name="j12_waist_yaw" joint="j12_waist_yaw" />
+        <motor name="j13_shoulder_pitch_l" joint="j13_shoulder_pitch_l" />
+        <motor name="j14_shoulder_roll_l" joint="j14_shoulder_roll_l" />
+        <motor name="j15_shoulder_yaw_l" joint="j15_shoulder_yaw_l" />
+        <motor name="j16_elbow_pitch_l" joint="j16_elbow_pitch_l" />
+        <motor name="j17_elbow_yaw_l" joint="j17_elbow_yaw_l" />
+        <motor name="j18_shoulder_pitch_r" joint="j18_shoulder_pitch_r" />
+        <motor name="j19_shoulder_roll_r" joint="j19_shoulder_roll_r" />
+        <motor name="j20_shoulder_yaw_r" joint="j20_shoulder_yaw_r" />
+        <motor name="j21_elbow_pitch_r" joint="j21_elbow_pitch_r" />
+        <motor name="j22_elbow_yaw_r" joint="j22_elbow_yaw_r" />
+        <motor name="j23_head_yaw" joint="j23_head_yaw" />
+    </actuator>
+
+</mujoco>

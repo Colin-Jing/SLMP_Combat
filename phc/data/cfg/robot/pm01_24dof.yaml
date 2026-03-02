@@ -1,0 +1,80 @@
+humanoid_type: pm01
+bias_offset: False
+has_self_collision: False
+has_mesh: False # True
+has_jt_limit: False # True
+has_dof_subset: True
+has_upright_start: True
+has_smpl_pd_offset: False
+remove_toe: False
+motion_sym_loss: False
+sym_loss_coef: 1
+big_ankle: True
+
+has_shape_obs: false
+has_shape_obs_disc: false
+has_shape_variation: False
+
+masterfoot: False
+freeze_toe: false
+freeze_hand: False
+box_body: False
+real_weight: True
+real_weight_porpotion_capsules: True
+real_weight_porpotion_boxes: True
+
+body_names: ['link_base', 'link_hip_pitch_l', 'link_hip_roll_l', 'link_hip_yaw_l', 'link_knee_pitch_l', 'link_ankle_pitch_l', 'link_ankle_roll_l', 'link_hip_pitch_r', 'link_hip_roll_r', 'link_hip_yaw_r', 'link_knee_pitch_r', 'link_ankle_pitch_r', 'link_ankle_roll_r', 'link_torso_yaw', 'link_shoulder_pitch_l', 'link_shoulder_roll_l', 'link_shoulder_yaw_l', 'link_elbow_pitch_l', 'link_elbow_yaw_l', 'link_shoulder_pitch_r', 'link_shoulder_roll_r', 'link_shoulder_yaw_r', 'link_elbow_pitch_r', 'link_elbow_yaw_r', 'link_head_yaw']
+
+limb_weight_group:
+  - ['link_hip_pitch_l', 'link_hip_roll_l', 'link_hip_yaw_l', 'link_knee_pitch_l', 'link_ankle_pitch_l', 'link_ankle_roll_l']
+  - ['link_hip_pitch_r', 'link_hip_roll_r', 'link_hip_yaw_r', 'link_knee_pitch_r', 'link_ankle_pitch_r', 'link_ankle_roll_r']
+  - ['link_base', 'link_torso_yaw', 'link_head_yaw']
+  - ['link_shoulder_pitch_l', 'link_shoulder_roll_l', 'link_shoulder_yaw_l', 'link_elbow_pitch_l', 'link_elbow_yaw_l']
+  - ['link_shoulder_pitch_r', 'link_shoulder_roll_r', 'link_shoulder_yaw_r', 'link_elbow_pitch_r', 'link_elbow_yaw_r']
+
+dof_names: ['j00_hip_pitch_l', 'j01_hip_roll_l', 'j02_hip_yaw_l', 'j03_knee_pitch_l', 'j04_ankle_pitch_l', 'j05_ankle_roll_l', 'j06_hip_pitch_r', 'j07_hip_roll_r', 'j08_hip_yaw_r', 'j09_knee_pitch_r', 'j10_ankle_pitch_r', 'j11_ankle_roll_r', 'j12_waist_yaw', 'j13_shoulder_pitch_l', 'j14_shoulder_roll_l', 'j15_shoulder_yaw_l', 'j16_elbow_pitch_l', 'j17_elbow_yaw_l', 'j18_shoulder_pitch_r', 'j19_shoulder_roll_r', 'j20_shoulder_yaw_r', 'j21_elbow_pitch_r', 'j22_elbow_yaw_r', 'j23_head_yaw']
+
+right_foot_name: 'link_ankle_roll_r'
+left_foot_name: 'link_ankle_roll_l'
+
+asset:
+  assetRoot: "./"
+  assetFileName: "phc/data/assets/robot/pm01/pm01.xml"
+  urdfFileName: "phc/data/assets/robot/pm01/pm01.xml"
+
+extend_config:
+  - joint_name: "left_toe_link"
+    parent_name: "link_ankle_roll_l"
+    pos: [0.08, 0.0, 0.0]
+    rot: [1.0, 0.0, 0.0, 0.0]
+
+  - joint_name: "right_toe_link"
+    parent_name: "link_ankle_roll_r"
+    pos: [0.08, 0.0, 0.0]
+    rot: [1.0, 0.0, 0.0, 0.0]
+
+base_link: "link_torso_yaw"
+joint_matches:
+  - ["link_base", "Pelvis"]
+  - ["link_hip_pitch_l", "L_Hip"]
+  - ["link_knee_pitch_l", "L_Knee"]
+  - ["link_ankle_roll_l", "L_Ankle"]
+  - ["link_hip_pitch_r", "R_Hip"]
+  - ["link_knee_pitch_r", "R_Knee"]
+  - ["link_ankle_roll_r", "R_Ankle"]
+  - ["link_shoulder_roll_l", "L_Shoulder"]
+  - ["link_elbow_pitch_l", "L_Elbow"]
+  - ["link_elbow_yaw_l", "L_Wrist"]
+  - ["link_shoulder_roll_r", "R_Shoulder"]
+  - ["link_elbow_pitch_r", "R_Elbow"]
+  - ["link_elbow_yaw_r", "R_Wrist"]
+  - ["link_head_yaw", "Head"]
+  - ["left_toe_link", "L_Toe"]
+  - ["right_toe_link", "R_Toe"]
+
+smpl_pose_modifier:
+  - Pelvis: "[np.pi/2, 0, np.pi/2]"
+  - L_Shoulder: "[0, 0, -np.pi/2]"
+  - R_Shoulder: "[0, 0, np.pi/2]"
+  - L_Elbow: "[0, -np.pi/2, 0]"
+  - R_Elbow: "[0, np.pi/2, 0]"
