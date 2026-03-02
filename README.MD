@@ -11,9 +11,9 @@
 
 - [ ] Release dataset.
 
-- [ ] Release SLPM prior training code.
+- [ ] Release SLMP prior training code.
 
-- [x] Release SLPM combat code. 
+- [x] Release SLMP combat code. 
 
 
 ## Intallation 
