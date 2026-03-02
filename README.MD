@@ -3,7 +3,7 @@
 [[website]](https://colin-jing.github.io/SLMP/)
 
 <div float="center">
-  <img src="assets/g1_combat_3.gif" width="100%" />
+  <img src="assets/combat.png" width="100%" />
 </div>
 
 
@@ -41,6 +41,19 @@ pip install -r requirement.txt
         |-- SMPLX_NEUTRAL.pkl
         |-- SMPLX_MALE.pkl
 
+```
+
+4. Download the pre-trained prior models from [Google Drive](https://drive.google.com/drive/folders/16BxgFYTnuyvzuHAs2eiVgBVnLpdyzPjx?usp=sharing) and put them in the `output` folder. The file structure should look like this:
+
+```
+|-- output
+    |-- HumanoidIm
+        |-- g1_combat_prior
+            |-- Humanoid_00007000.pth
+        |-- pm01_combat_prior
+            |-- Humanoid.pth
+        |-- smpl_combat_prior
+            |-- Humanoid_00017700.pth
 ```
 
 # Commands
