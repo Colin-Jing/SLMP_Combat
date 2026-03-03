@@ -2,9 +2,9 @@
 
 [[website]](https://colin-jing.github.io/SLMP/)
 
-<div float="center">
-  <img src="assets/combat.png" width="100%" />
-</div>
+<p align="center">
+  <img src="assets/combat.png" width="50%" />
+</p>
 
 
 ## TODOs
