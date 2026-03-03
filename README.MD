@@ -1,6 +1,6 @@
 # Spherical Latent Motion Prior for Physics-Based Simulated Humanoid Control 
 
-[[website]](https://colin-jing.github.io/SLMP/)
+[[paper]](https://arxiv.org/abs/2603.01294) [[website]](https://colin-jing.github.io/SLMP/)
 
 <div float="center">
   <img src="assets/SLMP_Combat.gif" />
