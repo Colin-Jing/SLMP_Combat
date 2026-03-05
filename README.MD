@@ -69,3 +69,14 @@ Training and inference scripts are in the `scripts` folder:
 
 ## Acknowledgement
 This project is built on top of [SMPLOlympics](https://smplolympics.github.io/SMPLOlympics/).
+
+## Citation
+
+```bibtex
+@article{tan2026slmp,
+  title   = {Spherical Latent Motion Prior for Physics-Based Simulated Humanoid Control},
+  author  = {Tan, Jing and Xu, Weisheng and Jiang, Xiangrui and Zhang, Jiaxi and Yang, Kun and Wu, Kai and Xiong, Jiaqi and Chen, Shiting and Li, Yangfan and Feng, Yixiao and Fang, Yuetong and Zou, Yujia and Song, Yiqun and Xu, Renjing},
+  journal = {arXiv preprint arXiv:2603.01294},
+  year    = {2026}
+}
+```
